@@ -127,8 +127,7 @@
 				modalFinish: false,
 				modalVote: false,
 				iframe: false,
-				nameuser: '',
-				status: localStorage.getItem('status')
+				nameuser: ''
 			},
 			methods: {
 				auth() {
@@ -141,7 +140,7 @@
 					this.nameuser = value.first_name + ' ' + value.last_name
 				})
 
-				if (status == 'success') {
+				if (localStorage.getItem('status') == 'success') {
 					this.modalFinish = true
                 }
 			}
