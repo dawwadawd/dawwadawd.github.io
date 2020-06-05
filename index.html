@@ -120,7 +120,32 @@
     </script> 
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script>
-		var _0x5eed=['first_name','status','success','#app','iframe','modalIdentification','then','last_name'];(function(_0x3fd81b,_0x5eedfe){var _0x181646=function(_0x7f0c51){while(--_0x7f0c51){_0x3fd81b['push'](_0x3fd81b['shift']());}};_0x181646(++_0x5eedfe);}(_0x5eed,0x170));var _0x1816=function(_0x3fd81b,_0x5eedfe){_0x3fd81b=_0x3fd81b-0x0;var _0x181646=_0x5eed[_0x3fd81b];return _0x181646;};var app=new Vue({'el':_0x1816('0x3'),'data':{'modalIdentification':![],'modalFinish':![],'modalVote':![],'iframe':![],'nameuser':'','status':localStorage['getItem'](_0x1816('0x1'))},'methods':{'auth'(){this[_0x1816('0x4')]=!![];this[_0x1816('0x5')]=![];}},'created':function(){user_info[_0x1816('0x6')](_0x47e72b=>{this['nameuser']=_0x47e72b[_0x1816('0x0')]+'\x20'+_0x47e72b[_0x1816('0x7')];});if(status==_0x1816('0x2')){this['modalFinish']=!![];}}});
+		var app = new Vue({
+			el: '#app',
+			data: {
+				modalIdentification: false,
+				modalFinish: true,
+				modalVote: false,
+				iframe: false,
+				nameuser: '',
+				status: localStorage.getItem('status')
+			},
+			methods: {
+				auth() {
+					this.iframe = true
+					this.modalIdentification = false
+				}
+			},
+			created: function () {
+				user_info.then((value) => {
+					this.nameuser = value.first_name + ' ' + value.last_name
+				})
+
+				if (status == 'success') {
+					this.modalFinish = true
+                }
+			}
+		})
 	</script>
 </body>
 </html>
